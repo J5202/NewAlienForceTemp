@@ -1,0 +1,113 @@
+{
+  "name": "Rojo",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "RemoteEvents": {
+        "Blocking": {
+          "$className": "RemoteEvent"
+        },
+        "M1": {
+          "$className": "RemoteEvent"
+        },
+        "GiveStates": {
+          "$className" : "RemoteEvent"
+        },
+        "SetStunnable": {
+          "$className": "RemoteEvent"
+        },
+        "ChangeStyle": {
+          "$className": "RemoteEvent"
+        },
+        "RemoveTopbar": {
+          "$className": "RemoteEvent"
+        },
+        "$className": "Folder"
+      },
+      "$path": "src/ReplicatedStorage",
+      "$ignoreUnknownInstances": true,
+      "Hitbox" : {
+        "$className": "Folder",
+        "$ignoreUnknownInstances": true,
+        "M1Hitbox": {
+          "$className": "Part",
+          "$properties": {"Anchored": true, "CanCollide": false, "Transparency": 0.6,
+            "Size": [4,5,3]
+          }
+        }
+      },
+      "RemoteFunctions": {
+        "$className": "Folder",
+        "InvokeTopBar": {
+          "$className": "RemoteFunction"
+        }
+      }
+    },
+
+    "ServerScriptService": {
+      "$path": "src/ServerScriptService",
+      "$ignoreUnknownInstances": true
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "src/StarterPlayerScripts",
+        "$ignoreUnknownInstances": true
+      },
+      "StarterCharacterScripts": {
+        "$path": "src/StarterCharacterScripts",
+        "$ignoreUnknownInstances": true
+      },
+      "$ignoreUnknownInstances": true
+    },
+
+    "Workspace": {
+      "$properties": {
+        "FilteringEnabled": true
+      },
+      "Baseplate": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Color": [
+            0.38823,
+            0.37254,
+            0.38823
+          ],
+          "Locked": true,
+          "Position": [
+            0,
+            -10,
+            0
+          ],
+          "Size": [
+            512,
+            20,
+            512
+          ]
+        }
+      },
+      "$ignoreUnknownInstances": true
+    },
+    "Lighting": {
+      "$properties": {
+        "Ambient": [
+          0,
+          0,
+          0
+        ],
+        "Brightness": 2,
+        "GlobalShadows": true,
+        "Outlines": false,
+        "Technology": "Voxel"
+      },
+      "$ignoreUnknownInstances": true
+    },
+    "SoundService": {
+      "$properties": {
+        "RespectFilteringEnabled": true
+      }
+    }
+  }
+}
