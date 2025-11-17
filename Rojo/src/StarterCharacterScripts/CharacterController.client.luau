@@ -11,8 +11,10 @@ task.delay(20, function()
     SetStunnable:FireServer(true)
 end)
 
-UIS.InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end
+local Debounce = false
 
-    if input then SetStunnable:FireServer(true) end
-end)
+-- UIS.InputBegan:Once(function(input, gameProcessed)
+--     if gameProcessed then return end
+
+--     if input.UserInputType == Enum.UserInputType.Keyboard and Debounce == false then SetStunnable:FireServer(true) Debounce = true end
+-- end)
