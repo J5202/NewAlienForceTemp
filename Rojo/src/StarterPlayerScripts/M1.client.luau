@@ -1,10 +1,10 @@
 local UIS = game:GetService("UserInputService")
 
-local Animator = game.Players.LocalPlayer.CharacterAdded:Wait():WaitForChild("Humanoid"):WaitForChild("Animator")
-
 local M1OneAnimId = "rbxassetid://99719359851694"
 local M1TwoAnimId = "rbxassetid://103412070853654"
 local M1ThreeAnimId = "rbxassetid://139782183247884"
+
+local BlockingEvent = game.ReplicatedStorage.RemoteEvents.Blocking
 
 local inputholders = {combostep = 1, lastclicktime = tick(), lasttime = tick(), punchtimegap = tick()}
 local ButtonHold = false
@@ -13,8 +13,10 @@ UIS.InputBegan:Connect(function(input:InputObject, gpe:boolean)
 	if gpe then return end
 	
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
-		local Stunned = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Stunned")
-		local Blocking = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Blocking")
+		print("M1 Pressed")
+		local Animator = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("Animator", 0.2)
+		local Stunned = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Stunned", 0.2)
+		local Blocking = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Blocking", 0.2)
 		if Stunned == false then return end
 		if Blocking == false then return end
 		if Stunned.Value == true then return end
@@ -30,6 +32,7 @@ UIS.InputBegan:Connect(function(input:InputObject, gpe:boolean)
 		end
 
 		if inputholders.combostep < 5 and timediff > 1.4 and punchtimegap > 0.3 then
+			print("M1 Executed")
 			local Animation = Instance.new("Animation")
 			if inputholders.combostep == 1 then
 				Animation.AnimationId = M1OneAnimId

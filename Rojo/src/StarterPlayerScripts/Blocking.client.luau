@@ -8,6 +8,7 @@ UserInputService.InputBegan:Connect(function(input:InputObject, gpe:boolean)
 	if gpe then return end
 	
 	if input.KeyCode == Enum.KeyCode.F then
+		print("Blocking Pressed")
 		local Stunned = game.Players.LocalPlayer.Character.States.Stunned
 		if Stunned.Value == false then
 			BlockingEvent:FireServer(true)

@@ -13,8 +13,8 @@ end)
 
 local Debounce = false
 
--- UIS.InputBegan:Once(function(input, gameProcessed)
---     if gameProcessed then return end
+UIS.InputBegan:Once(function(input, gameProcessed)
+    if gameProcessed then return end
 
---     if input.UserInputType == Enum.UserInputType.Keyboard and Debounce == false then SetStunnable:FireServer(true) Debounce = true end
--- end)
+    if input.UserInputType == Enum.UserInputType.Keyboard and Debounce == false then SetStunnable:FireServer(true) Debounce = true end
+end)
