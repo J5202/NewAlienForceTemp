@@ -10,8 +10,10 @@ UserInputService.InputBegan:Connect(function(input:InputObject, gpe:boolean)
 	if input.KeyCode == Enum.KeyCode.F then
 		print("Blocking Press")
 		local IsAwakening = game.Players.LocalPlayer.Character.States.IsAwakening
-		if IsAwakening.Value == true then return end
 		local Stunned = game.Players.LocalPlayer.Character.States.Stunned
+	
+		if IsAwakening.Value == true then return end
+
 		if Stunned.Value == false then
 			BlockingEvent:FireServer(true)
 			local BlockingAnimationId = "rbxassetid://105839001345701"

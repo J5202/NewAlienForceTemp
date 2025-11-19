@@ -14,9 +14,12 @@ UIS.InputBegan:Connect(function(input:InputObject, gpe:boolean)
 	
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
 		print("M1 Pressed")
+		local IsAwakening = game.Players.LocalPlayer.Character.States.IsAwakening
 		local Animator = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("Animator", 0.2)
 		local Stunned = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Stunned", 0.2)
 		local Blocking = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Blocking", 0.2)
+		
+		if IsAwakening.Value == true then return end
 		if Stunned == false then return end
 		if Blocking == false then return end
 		if Stunned.Value == true then return end
