@@ -20,7 +20,6 @@
         "ChangeStyle": {
           "$className": "RemoteEvent"
         },
-        
         "$className": "Folder"
       },
       "$path": "src/ReplicatedStorage",
