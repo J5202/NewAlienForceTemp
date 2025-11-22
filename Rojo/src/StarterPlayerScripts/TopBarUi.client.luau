@@ -28,6 +28,14 @@ InvokeTopBar.OnClientInvoke = function()
         EmotesIcon:deselect()
     end)
 
+    local Settings = Icon.new()
+    Settings:setName("Settings")
+    Settings:setLabel("Settings")
+    Settings:bindEvent("selected", function()
+        print("Settings Button Pressed, Add popup")
+        Settings:deselect()
+    end)
+
 end
 
 

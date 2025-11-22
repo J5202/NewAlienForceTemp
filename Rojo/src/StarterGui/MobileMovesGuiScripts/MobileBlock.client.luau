@@ -1,6 +1,11 @@
 local BlockingEvent = game.ReplicatedStorage.RemoteEvents.Blocking
 
-local MobileBlock:ImageButton = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("MobileMovesGui", 5):WaitForChild("Block", 5)
+local MobileMovesGui = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("MobileMovesGui", 2)
+if not MobileMovesGui then
+    warn("MobileBlock button not found in MobileMovesGui.")
+    return
+end
+local MobileBlock:ImageButton = MobileMovesGui:WaitForChild("Block",2)
 
 MobileBlock.InputBegan:Connect(function(input)
     print("Blocking Press")

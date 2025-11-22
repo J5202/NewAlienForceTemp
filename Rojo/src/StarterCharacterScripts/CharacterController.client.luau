@@ -22,5 +22,9 @@ end)
 local Stunned = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Stunned", 0.2) or game.Players.LocalPlayer.CharacterAdded:WaitForChild("States"):WaitForChild("Stunned", 5)
 
 Stunned.Changed:Connect(function()
-    print("Stunned changed to ", Stunned.Value)
+    if Stunned.Value == true then
+        print("Player is stunned, disable controls")
+    else
+        print("Player is no longer stunned, enable controls")
+    end
 end)

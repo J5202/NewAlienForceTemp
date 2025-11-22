@@ -1,4 +1,9 @@
-local M1Button:ImageButton = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("MobileMovesGui"):WaitForChild("M1Button")
+local MobileMovesGui = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("MobileMovesGui", 2)
+if not MobileMovesGui then
+    warn("MobileBlock button not found in MobileMovesGui.")
+    return
+end
+local M1Button:ImageButton = MobileMovesGui:WaitForChild("M1Button", 2)
 
 local M1OneAnimId = "rbxassetid://99719359851694"
 local M1TwoAnimId = "rbxassetid://103412070853654"

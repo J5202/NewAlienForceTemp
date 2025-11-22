@@ -2,7 +2,7 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="ScreenGui" referent="RBX50EE2938436B4417B675C69DC321D986">
+	<Item class="ScreenGui" referent="RBXB41CBFA98A934FB08372DCC6CFD9DB12">
 		<Properties>
 			<bool name="ClipToDeviceSafeArea">true</bool>
 			<int name="DisplayOrder">0</int>
@@ -25,7 +25,7 @@
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="ImageButton" referent="RBX30ABE45B68884D3AA960ACB42AB5AA23">
+		<Item class="ImageButton" referent="RBX43C3EB38B3F74959B3D7E395F0C1C431">
 			<Properties>
 				<Content name="HoverImage"><null></null></Content>
 				<Content name="Image"><url>rbxassetid://88848843496087</url></Content>
@@ -97,9 +97,9 @@
 				<Ref name="NextSelectionRight">null</Ref>
 				<Ref name="NextSelectionUp">null</Ref>
 				<UDim2 name="Position">
-					<XS>0.808735728</XS>
+					<XS>0.806007206</XS>
 					<XO>0</XO>
-					<YS>0.624594629</YS>
+					<YS>0.604186475</YS>
 					<YO>0</YO>
 				</UDim2>
 				<float name="Rotation">0</float>
@@ -129,7 +129,7 @@
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="UICorner" referent="RBX13188DD9A1764EFBAE155A6C55A4E5E3">
+			<Item class="UICorner" referent="RBXB83F8F11E5AD47CFBE793AD8737716D9">
 				<Properties>
 					<UDim name="CornerRadius">
 						<S>8</S>
@@ -143,7 +143,7 @@
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="UIStroke" referent="RBX40814F58C7FE45BF97F075360C1B8422">
+			<Item class="UIStroke" referent="RBX157B4D4210BE487D8AAC16D1ECB00DAF">
 				<Properties>
 					<token name="ApplyStrokeMode">0</token>
 					<UDim name="BorderOffset">
@@ -170,7 +170,7 @@
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="UIAspectRatioConstraint" referent="RBXAFCAB98B186847A39A15824A79F73432">
+			<Item class="UIAspectRatioConstraint" referent="RBXD2F8D5080EE145529047AEBC5568AA87">
 				<Properties>
 					<float name="AspectRatio">0.99999994</float>
 					<token name="AspectType">0</token>
@@ -184,7 +184,7 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="ImageButton" referent="RBX77DC1EC2FF3F4E3C95F41D615C20A32A">
+		<Item class="ImageButton" referent="RBX3877C2BBD67B4B48854C3A4445437DE4">
 			<Properties>
 				<Content name="HoverImage"><null></null></Content>
 				<Content name="Image"><url>rbxassetid://107790876659746</url></Content>
@@ -256,9 +256,9 @@
 				<Ref name="NextSelectionRight">null</Ref>
 				<Ref name="NextSelectionUp">null</Ref>
 				<UDim2 name="Position">
-					<XS>0.780086339</XS>
+					<XS>0.777357817</XS>
 					<XO>0</XO>
-					<YS>0.803166032</YS>
+					<YS>0.782757878</YS>
 					<YO>0</YO>
 				</UDim2>
 				<float name="Rotation">0</float>
@@ -288,7 +288,7 @@
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="UICorner" referent="RBX1D484B3F31FA4B30ADCDBF8F1AF6C005">
+			<Item class="UICorner" referent="RBX90F809581CA243B7BE094EDECFCBEACC">
 				<Properties>
 					<UDim name="CornerRadius">
 						<S>8</S>
@@ -302,7 +302,7 @@
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="UIStroke" referent="RBXD37407F96B6B4724884F46E512F61C35">
+			<Item class="UIStroke" referent="RBX9A4D9FE0238C4D5E817026E758BF1C9C">
 				<Properties>
 					<token name="ApplyStrokeMode">0</token>
 					<UDim name="BorderOffset">
@@ -329,7 +329,7 @@
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="UIAspectRatioConstraint" referent="RBXAE2A797DE1D94A5197FEAE16943188C8">
+			<Item class="UIAspectRatioConstraint" referent="RBXEEF3D3B329F04BC6A824B2E8651AECB8">
 				<Properties>
 					<float name="AspectRatio">0.99999994</float>
 					<token name="AspectType">0</token>
