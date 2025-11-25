@@ -23,6 +23,9 @@
         "Move1": {
           "$className": "RemoteEvent"
         },
+        "SetMove1Clickable": {
+          "$className": "RemoteEvent"
+        },
         "$className": "Folder",
         "$ignoreUnknownInstances": false
       },
@@ -48,7 +51,7 @@
         "$className": "Folder",
         "Reset": {
           "$className": "BindableEvent"
-        } 
+        }
       },
       "BindableFunctions": {
         "$className": "Folder",
@@ -120,6 +123,10 @@
       "$properties": {
         "RespectFilteringEnabled": true
       }
+    },
+    "StarterGui": {
+      "$ignoreUnknownInstances": true,
+      "$path": "src/StarterGui"
     }
   }
 }

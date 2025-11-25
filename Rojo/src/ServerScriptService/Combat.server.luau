@@ -17,5 +17,10 @@ end)
 
 Move1Event.OnServerEvent:Connect(function(player, Move1Time)
 	local Style = player:FindFirstChild("Style").Value
-	MovesetsMain.CharacterModules[Style].Move1(Move1Time)
+	local Awakened = player.Character:WaitForChild("States"):WaitForChild("Awakened")
+	if Awakened.Value == false then
+		MovesetsMain.CharacterModules[Style].Move1(player, Move1Time)
+	else 
+		MovesetsMain.CharacterModules[Style].AwkMove1(player, Move1Time)
+	end
 end)

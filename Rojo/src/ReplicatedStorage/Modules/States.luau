@@ -31,6 +31,7 @@ function module.GiveStates(player:Player)
 	local Awakened = Instance.new("BoolValue")
 	Awakened.Name = "Awakened"
 	Awakened.Parent = States
+	Awakened.Value = false
 	
 	if not player:WaitForChild("PlayerAwakening", 0.01) then
 		local AwkBar = Instance.new("IntValue")

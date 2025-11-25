@@ -2,6 +2,7 @@ local module = {}
 module.__index = module
 
 local HeatBlast = require(script.Parent:WaitForChild("HeatBlast"):WaitForChild("HeatblastMain"))
+local FourArms = require(script.Parent:WaitForChild("FourArms"):WaitForChild("FourArmsMain"))
 
 function module.Moveset(move1, move2, move3, move4, awkmove1, awkmove2, awkmove3, awkmove4)
     local self = setmetatable({}, module)
@@ -17,7 +18,8 @@ function module.Moveset(move1, move2, move3, move4, awkmove1, awkmove2, awkmove3
 end
 
 module.CharacterModules = {
-    ["HeatBlast"] = module.Moveset(HeatBlast.Move1, nil, nil, nil, nil, nil, nil, nil)
+    ["HeatBlast"] = module.Moveset(HeatBlast.Move1, nil, nil, nil, nil, nil, nil, nil),
+    ["FourArms"] = module.Moveset(nil, nil, nil, nil, nil, nil, nil, nil)
 }
 
 return module

@@ -29,11 +29,12 @@ end)
 
 ChangeStyle.OnServerEvent:Connect(function(player:Player, StyleValue:string)
 	local Style = player:WaitForChild("Style", 0.02)
-	if Style then
+	if Style and StyleValue ~= Style.Value then
 		Style.Value = StyleValue
+		player:LoadCharacter()
 		print("Setting Style to ", StyleValue, " for player ", player.Name)
 	else
-		warn("Style value not found for player ", player.Name)
+		warn("Style value not found for player ", player.Name.." or StyleValue is the same as "..player.Name.."'s current style.")
 	end
 end)
 

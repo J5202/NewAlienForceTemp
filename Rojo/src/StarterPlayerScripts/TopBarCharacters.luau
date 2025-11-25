@@ -20,6 +20,7 @@ end)
 FireMan:setEnabled(true)
 FireMan:setName("HeatBlast")
 FireMan:setLabel("Fire Man", "Deselected")
+FireMan:setImage("rbxassetid://121250798600170", "Deselected")
 
 local RedMan = Icon.new()
 RedMan:autoDeselect(true)
@@ -38,6 +39,7 @@ end)
 RedMan:setEnabled(true)
 RedMan:setName("FourArms")
 RedMan:setLabel("Red Man", "Deselected")
+RedMan:setImage("rbxassetid://98468629387566", "Deselected")
 
 module = {
     FireMan = FireMan,

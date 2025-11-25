@@ -31,7 +31,7 @@ ResetForCharacterSwitch.OnInvoke = function()
     local Humanoid = game.Players.LocalPlayer.Character:WaitForChild("Humanoid", 0.2) or game.Players.LocalPlayer.CharacterAdded:WaitForChild("Humanoid", 5)
     local CanReset = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("CanReset", 0.2) or game.Players.LocalPlayer.CharacterAdded:WaitForChild("States"):WaitForChild("CanReset", 5)
     if CanReset.Value == true then
-        Humanoid.Health = 0
+        --Humanoid.Health = 0
         print("Player has been reset.")
         return true
     else
