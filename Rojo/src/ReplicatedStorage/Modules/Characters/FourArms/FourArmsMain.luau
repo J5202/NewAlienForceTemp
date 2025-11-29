@@ -10,9 +10,9 @@ function module.Move1(player, Move1Time)
     if tick() - Move1Time > 15 then
     -- Implementation for FourArms Move1 goes here
         print("FourArms Move1 executed at time: "..Move1Time)
-        GroundSlam.UseMove(player, Move1Time)
         SetMove1ClickableEvent:FireClient(player, false, 10)
         SetMove1ClickableEventMobile:FireClient(player, false, 10)
+        GroundSlam.UseMove(player, Move1Time)
         task.delay(15, function()
             print("FourArms Move1 is now off cooldown.")
             SetMove1ClickableEvent:FireClient(player, true, 10)

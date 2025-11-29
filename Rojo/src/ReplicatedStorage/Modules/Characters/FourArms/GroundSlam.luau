@@ -24,6 +24,8 @@ function module.UseMove(player, MoveTime)
         if Humanoid.FloorMaterial == Enum.Material.Air then
             print("GroundSlam executed while in Freefall state for player: "..player.Name)
             data.AnimationVariant = "AirVariant"
+            data.AnimationId = "rbxassetid://138359359331086"
+            data:AddRangeToDoEffect(15)
             PlayMoveAnimationEvent:FireClient(player, data)
             -- Add actual GroundSlam air variant implementation here
 

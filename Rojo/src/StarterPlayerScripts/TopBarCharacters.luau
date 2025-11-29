@@ -41,9 +41,15 @@ RedMan:setName("FourArms")
 RedMan:setLabel("Red Man", "Deselected")
 RedMan:setImage("rbxassetid://98468629387566", "Deselected")
 
+local SpeedMan = Icon.new()
+SpeedMan:setName("XLR8")
+SpeedMan:setLabel("Speed Man")
+SpeedMan:setImage("rbxassetid://70977876464174", "Deselected")
+
 module = {
     FireMan = FireMan,
-    RedMan = RedMan
+    RedMan = RedMan,
+	SpeedMan = SpeedMan
 }
 
 return module

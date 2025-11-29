@@ -13,6 +13,12 @@ module.NormalMoves = {
         Move2 = "Double Punch Combo",
         Move3 = "Boulder Throw",
         Move4 = "FourArms"
+    },
+    ["XLR8"] = {
+        Move1 = "Speed Rush",
+        Move2 = "Tornado SpinKick",
+        Move3 = "Rapid Strikes",
+        Move4 = "Time Slip"
     }
 }
 
@@ -28,6 +34,12 @@ module.AwakenedMoves = {
         Move2 = "Quadruple Punch",
         Move3 = "Mountain Crush",
         Move4 = "Awakened FourArms"
+    },
+    ["XLR8"] = {
+        Move1 = "Boom Dash",
+        Move2 = "Time Breaker",
+        Move3 = "Cyclone Acceleration",
+        Move4 = "Afterimage Barrage"
     }
 }
 

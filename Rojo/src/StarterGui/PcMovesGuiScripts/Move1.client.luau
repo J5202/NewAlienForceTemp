@@ -18,8 +18,8 @@ UIS.InputBegan:Connect(function(input, gameProcessed)
 
     if input.KeyCode == Enum.KeyCode.One then
         --print(Move1Clickable)
-        Move1Event:FireServer(Move1Time)
         if Move1Clickable == false then return end
+        Move1Event:FireServer(Move1Time)
         Move1Time = tick()
         -- if Move1Clickable == true then  end 
     end

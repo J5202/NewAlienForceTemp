@@ -84,7 +84,11 @@
         "$path": "src/StarterCharacterScripts",
         "$ignoreUnknownInstances": true
       },
-      "$ignoreUnknownInstances": true
+      "$ignoreUnknownInstances": true,
+      "$properties": {
+        "CharacterWalkSpeed" : 24,
+        "CharacterJumpHeight" : 14
+      }
     },
 
     "Workspace": {
