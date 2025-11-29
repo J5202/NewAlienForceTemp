@@ -28,6 +28,11 @@ function module.GiveStates(player:Player)
 	CanReset.Parent = States
 	CanReset.Value = true
 	
+	local CanAttack = Instance.new("BoolValue")
+	CanAttack.Name = "CanAttack"
+	CanAttack.Parent = States
+	CanAttack.Value = true
+
 	local Awakened = Instance.new("BoolValue")
 	Awakened.Name = "Awakened"
 	Awakened.Parent = States

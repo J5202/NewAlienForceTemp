@@ -26,6 +26,15 @@
         "SetMove1Clickable": {
           "$className": "RemoteEvent"
         },
+        "SetMove1ClickableMobile": {
+          "$className" : "RemoteEvent"
+        },
+        "PlayMoveAnimation" :{
+          "$className" : "RemoteEvent"
+        },
+        "EndOfMoveEvent":{
+          "$className" : "RemoteEvent"
+        },
         "$className": "Folder",
         "$ignoreUnknownInstances": false
       },
@@ -72,7 +81,8 @@
         "$ignoreUnknownInstances": true
       },
       "StarterCharacterScripts": {
-        "$path": "src/StarterCharacterScripts"
+        "$path": "src/StarterCharacterScripts",
+        "$ignoreUnknownInstances": true
       },
       "$ignoreUnknownInstances": true
     },

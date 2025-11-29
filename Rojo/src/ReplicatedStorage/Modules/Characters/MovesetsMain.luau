@@ -19,7 +19,7 @@ end
 
 module.CharacterModules = {
     ["HeatBlast"] = module.Moveset(HeatBlast.Move1, nil, nil, nil, nil, nil, nil, nil),
-    ["FourArms"] = module.Moveset(nil, nil, nil, nil, nil, nil, nil, nil)
+    ["FourArms"] = module.Moveset(FourArms.Move1, nil, nil, nil, nil, nil, nil, nil)
 }
 
 return module
