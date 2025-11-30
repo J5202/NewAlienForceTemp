@@ -1,10 +1,10 @@
 local Player = game.Players.LocalPlayer
 local Character = Player.Character
-local Animator:Animator = Character:WaitForChild("Humanoid"):WaitForChild("Animator")
+local Humanoid:Humanoid = Character:WaitForChild("Humanoid")
+local Animator:Animator = Humanoid:WaitForChild("Animator")
 local HRP:Part = Character:WaitForChild("HumanoidRootPart")
 
 local PlayMoveAnimationEvent = game.ReplicatedStorage.RemoteEvents.PlayMoveAnimation
-local EndOfMoveEvent = game.ReplicatedStorage.RemoteEvents.EndOfMoveEvent
 
 PlayMoveAnimationEvent.OnClientEvent:Connect(function(data)
     if data.AnimationVariant == "AirVariant" then
@@ -13,6 +13,7 @@ PlayMoveAnimationEvent.OnClientEvent:Connect(function(data)
         local Animation = Instance.new("Animation")
         Animation.AnimationId = data.AnimationId
         local AnimationTrack = Animator:LoadAnimation(Animation)
+        AnimationTrack.Name = data.AnimationName
 
         local BelowCharacterRaycastParams = RaycastParams.new()
         BelowCharacterRaycastParams.FilterType = Enum.RaycastFilterType.Exclude
@@ -49,10 +50,21 @@ PlayMoveAnimationEvent.OnClientEvent:Connect(function(data)
     elseif data.AnimationVariant == "GroundVariant" then
         print("Animation Playing is A Ground Variant Move")
 
+        Humanoid.WalkSpeed = 0
+        Humanoid.JumpHeight = 0
+
         local Animation = Instance.new("Animation")
         Animation.AnimationId = data.AnimationId
         local AnimationTrack = Animator:LoadAnimation(Animation)
+        AnimationTrack.Name = data.AnimationName
         AnimationTrack:Play(0.00001,1, data.AnimationSpeed)
+
+        if data.UnStunAfterAnim == true then
+            AnimationTrack.Ended:Connect(function()
+                Humanoid.WalkSpeed = 24
+                Humanoid.JumpHeight = 14
+            end)
+        end
         
         if data.AnimationEventName  then
            -- AnimationTrack.

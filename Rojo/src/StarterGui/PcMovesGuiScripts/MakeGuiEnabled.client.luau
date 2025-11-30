@@ -1,4 +1,4 @@
-local PcMovesGui = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("PcMovesGui", 5)
+local PcMovesGui = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("PcMovesGui", 50)
 local PcMovesGuiScripts = game.Players.LocalPlayer.PlayerGui:WaitForChild("PcMovesGuiScripts")
 if game:GetService("UserInputService").KeyboardEnabled then
     if PcMovesGui then

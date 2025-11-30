@@ -21,6 +21,7 @@ UIS.InputBegan:Connect(function(input, gameProcessed)
         if Move1Clickable == false then return end
         Move1Event:FireServer(Move1Time)
         Move1Time = tick()
+        print("Move1Time is ".. Move1Time)
         -- if Move1Clickable == true then  end 
     end
 end)

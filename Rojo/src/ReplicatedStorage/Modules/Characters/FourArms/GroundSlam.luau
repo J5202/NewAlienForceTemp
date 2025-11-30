@@ -4,7 +4,7 @@ module.__index = module
 local AnimationDataModule = require(game.ReplicatedStorage.Modules.Utilities.AnimationData)
 
 local PlayMoveAnimationEvent = game.ReplicatedStorage:WaitForChild("RemoteEvents").PlayMoveAnimation
-local EndOfMoveEvent = game.ReplicatedStorage.RemoteEvents.EndOfMoveEvent
+local GroundSlamEffectEvent = game.ReplicatedStorage
 
 -- local data = {
 --     AnimationId = "InputAnimationId",
@@ -14,15 +14,17 @@ local EndOfMoveEvent = game.ReplicatedStorage.RemoteEvents.EndOfMoveEvent
 --    -- ApplyEffectAtAnimEnd = true
 -- }
 
-local data = AnimationDataModule.Data("InputAnimationId", "Slam", nil, 0.9)
+local data = AnimationDataModule.Data("GroundSlam", "InputAnimationId", "Slam", nil, 0.9)
 
 function module.UseMove(player, MoveTime)
     local Humanoid:Humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+    local Animator:Animator = Humanoid:WaitForChild("Animator")
     
     if Humanoid then
         print("FourArms GroundSlam move used by player: "..player.Name.." at time: "..MoveTime)
         if Humanoid.FloorMaterial == Enum.Material.Air then
             print("GroundSlam executed while in Freefall state for player: "..player.Name)
+            data.AnimationName = "GroundSlamAirVariant"
             data.AnimationVariant = "AirVariant"
             data.AnimationId = "rbxassetid://138359359331086"
             data:AddRangeToDoEffect(15)
@@ -31,9 +33,14 @@ function module.UseMove(player, MoveTime)
 
         else
             print("GroundSlam executed while NOT in Freefall state for player: "..player.Name)
+            data.AnimationName = "GroundSlamGroundVariant"
             data.AnimationVariant = "GroundVariant"
-            data.AnimationId = "rbxassetid://73931025616831"
+            data.AnimationId = "rbxassetid://139339279286412"
+            data:UnstunAfterAnimation()
             PlayMoveAnimationEvent:FireClient(player, data)
+            --task.wait(0)
+            
+            
             -- Add actual GroundSlam ground variant implementation here
         end
     else

@@ -35,7 +35,7 @@
         "PlayMoveAnimation" :{
           "$className" : "RemoteEvent"
         },
-        "EndOfMoveEvent":{
+        "GroundSlamEffectEvent":{
           "$className" : "RemoteEvent"
         },
         "$className": "Folder",
