@@ -1,4 +1,5 @@
 local InvokeTopBar = game.ReplicatedStorage.RemoteFunctions.InvokeTopBar
+local ActivateSettings:BindableEvent = game.ReplicatedStorage.BindableEvents.ActivateSetting
 
 InvokeTopBar.OnClientInvoke = function()   
     local Icon = require(script.Parent:WaitForChild("topbarplus"))
@@ -39,7 +40,7 @@ InvokeTopBar.OnClientInvoke = function()
     Settings:setName("Settings")
     Settings:setLabel("Settings")
     Settings:bindEvent("selected", function()
-        print("Settings Button Pressed, Add popup")
+        ActivateSettings:Fire()
         Settings:deselect()
     end)
 

@@ -19,7 +19,8 @@ function module:AddRangeToDoEffect(AirVariantRangeToDoEffect:number)
     end
 end
 
-function module:UnstunAfterAnimation()
+function module:UnstunAfterAnimation(timeafterplayingtounstun:number)
+    self.TimeAfterPlayingToUnstun = timeafterplayingtounstun or 6
     self.UnStunAfterAnim = true
 end
 

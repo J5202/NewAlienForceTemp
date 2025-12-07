@@ -7,16 +7,23 @@ local SetMove1ClickableEventMobile:RemoteEvent = game.ReplicatedStorage:WaitForC
 local GroundSlam = require(game.ReplicatedStorage.Modules.Characters.FourArms.GroundSlam)
 
 function module.Move1(player, Move1Time)
+    local CanAttack = player.Character:WaitForChild("States"):WaitForChild("CanAttack")
+    if CanAttack.Value == false then return end
     if tick() - Move1Time > 15 then
     -- Implementation for FourArms Move1 goes here
         print("FourArms Move1 executed at time: "..Move1Time)
-        SetMove1ClickableEvent:FireClient(player, false, 10)
-        SetMove1ClickableEventMobile:FireClient(player, false, 10)
+        SetMove1ClickableEvent:FireClient(player, false, 15)
+        SetMove1ClickableEventMobile:FireClient(player, false, 15)
+        print("tick minus movetime is "..tick() - Move1Time)
+        CanAttack.Value = false
+        task.delay(1.5, function()
+            CanAttack.Value = true
+        end)
         GroundSlam.UseMove(player, Move1Time)
         task.delay(15, function()
             print("FourArms Move1 is now off cooldown.")
-            SetMove1ClickableEvent:FireClient(player, true, 10)
-            SetMove1ClickableEventMobile:FireClient(player, true, 10)
+            SetMove1ClickableEvent:FireClient(player, true, 0)
+            SetMove1ClickableEventMobile:FireClient(player, true, 0)
         end)
     else 
         print("FourArms Move1 on cooldown. Time since last use: "..(tick() - Move1Time))

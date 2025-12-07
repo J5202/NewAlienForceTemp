@@ -10,6 +10,16 @@ local SetStunnable = RemoteEvents.SetStunnable
 local ResetEvent = BindableEvents.Reset
 local ResetForCharacterSwitch = BindableFunctions.ResetForCharacterSwitch
 
+local Humanoid:Humanoid = script.Parent:WaitForChild("Humanoid")
+
+coroutine.resume(coroutine.create(function()
+    for i, sound in pairs(script.Parent:GetDescendants()) do
+        if sound:IsA("Sound") then
+            sound:Destroy()
+        end
+    end
+end))
+
 GiveStates:FireServer()
 
 task.delay(20, function()
@@ -57,9 +67,11 @@ local Stunned = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitFo
 
 Stunned.Changed:Connect(function()
     if Stunned.Value == true then
-        print("Player is stunned, disable controls")
+        Humanoid.WalkSpeed = 0
+        Humanoid.JumpHeight = 0
     else
-        print("Player is no longer stunned, enable controls")
+        Humanoid.WalkSpeed = 24
+        Humanoid.JumpHeight = 12
     end
 end)
 

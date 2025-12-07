@@ -8,11 +8,13 @@ local M1Button:ImageButton = MobileMovesGui:WaitForChild("M1Button", 2)
 local M1OneAnimId = "rbxassetid://99719359851694"
 local M1TwoAnimId = "rbxassetid://103412070853654"
 local M1ThreeAnimId = "rbxassetid://139782183247884"
+local M1DownslamAnimId = "rbxassetid://103688037581254"
 
 local inputholders = {combostep = 1, lastclicktime = tick(), lasttime = tick(), punchtimegap = tick()}
 
 M1Button.InputBegan:Connect(function(input:InputObject)
         print("M1 Pressed")
+		local Humanoid =game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
 		local IsAwakening = game.Players.LocalPlayer.Character.States.IsAwakening
 		local Animator = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("Animator", 0.2)
 		local Stunned = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Stunned", 0.2)
@@ -45,11 +47,22 @@ M1Button.InputBegan:Connect(function(input:InputObject)
 			elseif inputholders.combostep == 3 then
 				Animation.AnimationId = M1ThreeAnimId
 				Animator:LoadAnimation(Animation):Play()	
+			elseif  inputholders.combostep == 4 then
+				if Humanoid.FloorMaterial == Enum.Material.Air then
+					print("Do DownSlam")
+					Animation.AnimationId = M1DownslamAnimId
+					Animator:LoadAnimation(Animation):Play()	
+					inputholders.combostep = "DownSlam"
+				end			 	
 			end
 				
 			
 			game.ReplicatedStorage.RemoteEvents.M1:FireServer(inputholders.combostep)
-			inputholders.combostep += 1
+			if inputholders.combostep == "DownSlam" then
+				inputholders.combostep = 5
+			else 
+				inputholders.combostep += 1
+			end			
 			inputholders.punchtimegap = tick()
 			inputholders.lasttime = tick()
 			

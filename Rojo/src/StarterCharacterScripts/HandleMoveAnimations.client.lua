@@ -50,19 +50,34 @@ PlayMoveAnimationEvent.OnClientEvent:Connect(function(data)
     elseif data.AnimationVariant == "GroundVariant" then
         print("Animation Playing is A Ground Variant Move")
 
-        Humanoid.WalkSpeed = 0
-        Humanoid.JumpHeight = 0
-
         local Animation = Instance.new("Animation")
         Animation.AnimationId = data.AnimationId
-        local AnimationTrack = Animator:LoadAnimation(Animation)
+        local AnimationTrack:AnimationTrack = Animator:LoadAnimation(Animation)
         AnimationTrack.Name = data.AnimationName
         AnimationTrack:Play(0.00001,1, data.AnimationSpeed)
 
+        AnimationTrack:GetMarkerReachedSignal(data.AnimationEventName):Connect(function()
+            if data.AnimationEffectRemoteEvent then
+                local AnimationEffectRemoteEvent:RemoteEvent = data.AnimationEffectRemoteEvent
+                AnimationEffectRemoteEvent:FireServer()
+            end
+        end)
+
         if data.UnStunAfterAnim == true then
+            Humanoid.WalkSpeed = 0
+            Humanoid.JumpHeight = 0
+
+            task.delay(data.TimeAfterPlayingToUnstun, function()
+                if Humanoid.WalkSpeed ~= 24 then
+                    Humanoid.WalkSpeed = 24
+                    Humanoid.JumpHeight = 12
+                end
+            end)            
+
             AnimationTrack.Ended:Connect(function()
+                print("Unstunning Player after Ground Variant Move Animation")
                 Humanoid.WalkSpeed = 24
-                Humanoid.JumpHeight = 14
+                Humanoid.JumpHeight = 12
             end)
         end
         

@@ -3,6 +3,7 @@ local UIS = game:GetService("UserInputService")
 local M1OneAnimId = "rbxassetid://99719359851694"
 local M1TwoAnimId = "rbxassetid://103412070853654"
 local M1ThreeAnimId = "rbxassetid://139782183247884"
+local M1DownslamAnimId = "rbxassetid://103688037581254"
 
 local inputholders = {combostep = 1, lastclicktime = tick(), lasttime = tick(), punchtimegap = tick()}
 
@@ -11,8 +12,9 @@ UIS.InputBegan:Connect(function(input:InputObject, gpe:boolean)
 	
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
 		print("M1 Pressed")
+		local Humanoid =game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
 		local IsAwakening = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("IsAwakening")
-		local Animator = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("Animator", 0.2)
+		local Animator = Humanoid:WaitForChild("Animator", 0.2)
 		local Stunned = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Stunned", 0.2)
 		local Blocking = game.Players.LocalPlayer.Character:WaitForChild("States"):WaitForChild("Blocking", 0.2)
 		
@@ -43,11 +45,22 @@ UIS.InputBegan:Connect(function(input:InputObject, gpe:boolean)
 			elseif inputholders.combostep == 3 then
 				Animation.AnimationId = M1ThreeAnimId
 				Animator:LoadAnimation(Animation):Play()	
+			elseif inputholders.combostep == 4 then 
+				if Humanoid.FloorMaterial == Enum.Material.Air then
+					print("Do DownSlam")
+					Animation.AnimationId = M1DownslamAnimId
+					Animator:LoadAnimation(Animation):Play()	
+					inputholders.combostep = "DownSlam"
+				end
 			end
-				
+			
 			
 			game.ReplicatedStorage.RemoteEvents.M1:FireServer(inputholders.combostep)
-			inputholders.combostep += 1
+			if inputholders.combostep == "DownSlam" then
+				inputholders.combostep = 5
+			else 
+				inputholders.combostep += 1
+			end
 			inputholders.punchtimegap = tick()
 			inputholders.lasttime = tick()
 			

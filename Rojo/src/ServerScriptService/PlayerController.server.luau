@@ -17,6 +17,10 @@ local InvokeTopBar = RemoteFunctions.InvokeTopBar
 GiveStates.OnServerEvent:Connect(function(player)
 	StatesModule.GiveStates(player)
 	InvokeTopBar:InvokeClient(player)
+	local Humanoid:Humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+	if Humanoid then
+		Humanoid.MaxHealth = 120
+	end
 	print("Giving States")
 end)
 
